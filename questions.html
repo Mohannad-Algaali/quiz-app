@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Quiz App</title>
+    <script src="questions.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="main-menu">
+        
+        <h1>Quiz</h1>
+        <p>Wanna start your quiz?</p>
+        <button class="start-btn" onclick="loopQuestions">Start</button>
+    </header>
+    <main class="question hidden">
+
+    
+        <h2>Question goes here</h2>
+        <ol class="choices-container">
+            <li class="choice choice-a">choice a</li>
+            <li class="choice choice-b">choice b</li>
+            <li class="choice choice-c">choice c</li>
+            <li class="choice choice-d">choice d</li>
+        </ol>
+        <div class="control-container">
+            <button class="reset-btn">Reset</button>
+            <button class="next-btn">Next</button>
+        </div>
+
+        <div class="number-container">
+            <div class="question-number">15</div>
+            <br>
+            <div class="total-questions">50</div>
+        </div>
+        <div class="questions-answered"></div>
+        <p class="correct-answer"></p>
+    </main>
+    
+</body>
+</html>
