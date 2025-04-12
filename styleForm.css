@@ -6,18 +6,27 @@
 }
 
 body{
-    place-items: center;
+    
     padding: 50px;
     font-size: 1.5rem;
 }
 ol{
     margin: 20px;
+    gap:10px;
+    display: flex;
+    flex-direction: column;
+    align-content: left;
 }
 button{
-    width: 200px;
-    height: 50px;
+    aspect-ratio: 4/1;
     border-radius: 10px ;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 30px;
 
+}
+h1{
+    text-align: center;
 }
 label{
     font-size: 2rem;
@@ -28,9 +37,10 @@ input{
 p{
     margin: 20px;
     font-weight: 300;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
 
 }
 p:nth-child(5){
     color: brown;
+    font-size: 2rem;
 }
