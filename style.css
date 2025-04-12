@@ -4,9 +4,37 @@
     list-style: none;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-.hidden{
-    display: none;
+
+.main-menu{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: cneter;
+    gap: 20px;
+    text-align: center;
+    font-size: 2rem;
 }
+
+.main-menu .start-btn{
+    height: 70px;
+    aspect-ratio: 30/5;
+    border-radius: 15px;
+    border: 2px black solid;
+    box-shadow: 0 5px 3px 1px rgb(0,0,0,0.25);
+    cursor: pointer;
+    background-color: #DADFF7;
+    transition: all 0.1s ease-in;
+    color: #232C33;
+    font-size: 2rem;
+    font-weight: bold;
+    
+}
+
+
 .question h2{
     font-size: 2rem;
     margin: 30px;
@@ -70,7 +98,7 @@ main{
     place-items: center;
     
 }
-.next-btn,.reset-btn{
+.next-btn,.skip-btn{
     width: 300px;
     aspect-ratio: 30/5;
     border-radius: 15px;
@@ -80,11 +108,7 @@ main{
     background-color: #DADFF7;
     transition: all 0.1s ease-in;
 }
-.next-btn:hover, .reset-btn:hover, .choice:hover{
-    background-color: #232C33;
-    color:#DADFF7;
-    scale: 1.05;
-}
+
 
 .number-container{
     position:absolute;
@@ -142,4 +166,43 @@ br{
 
 
 
+.next-btn:hover, .skip-btn:hover, .choice:hover,.start-btn:hover{
+    background-color: #232C33;
+    color:#DADFF7;
+    scale: 1.05;
+}
 
+.results{
+    place-content: center;
+    place-items: left;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;    
+    font-size: 1.5rem;
+
+}
+.results ul{
+    margin: 30px;
+}
+.results ul li{
+    background-color: #DADFF7;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 10px 10px;
+}
+
+
+
+.results p{
+    color: #232C33;
+    background-color: #00ed47;
+    padding: 15px;
+    border-radius: 10px 10px;
+    }
+
+
+
+.hidden{
+    display: none;
+}

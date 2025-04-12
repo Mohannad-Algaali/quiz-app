@@ -9,9 +9,14 @@ choices.forEach((c)=>{
     c.addEventListener('click',()=>{answerQuestion(c.classList)});
    
 });
+document.addEventListener('keydown',(e)=>{
+    if(e.key ==='Enter' && isAnswered){
+        nextQuestion();
+    }
+})
 document.querySelector('.next-btn').addEventListener('click',nextQuestion)
 document.querySelector('.start-btn').addEventListener('click',loopQuestions);
-document.querySelector('.reset-btn').addEventListener('click',resetQuestions);
+document.querySelector('.skip-btn').addEventListener('click',nextQuestion);
 
 function getQuestions(){
     return JSON.parse(localStorage.getItem('csvData'));
@@ -40,6 +45,7 @@ function formatQuestion(questions, num){
 }
 function nextQuestion(){
     const questions = getQuestions();
+
     if(numQuestion+1< questions.length){
         numQuestion+=1;
         console.log('this is question No.'+ String(numQuestion+1));
@@ -48,6 +54,9 @@ function nextQuestion(){
         checkAnswered();
         updateNumbers();
         clearSelections();
+    }
+    else{
+        showResults();
     }
 }
 
@@ -145,10 +154,39 @@ function record(isCorrect){
     }
     updateNumbers();
 }
-function resetQuestions(){
-    numQuestion = 0;
-    correctAnswers =[];
-    clearSelections();
-    loopQuestions();
-    updateNumbers();
+function skipQuestions(){
+    numQuestion++;
+    
+}
+function showResults(){
+    const questions = getQuestions();
+    const resultsSection = document.querySelector('.results');
+
+    resultsSection.classList.remove('hidden');
+    document.querySelector('.question').classList.add('hidden');
+    resultsSection.innerHTML = '';
+    for(let i =0;i<questions.length;i++){
+        let correctNumber;
+        switch(questions[i].correct){
+            case 'a': correctNumber =1;break;
+            case 'b': correctNumber =2;break;
+            case 'c': correctNumber =3;break;
+            case 'd': correctNumber =4;break;
+            default:correctNumber =1; break;
+        }
+        let resultLayout = `<h2>`+questions[i].question+`</h2>`+ 
+        `<ul class="result-question-`+i+`">
+        <style>--correct:`+correctNumber+";</style>"+
+        `<li class="result-a">A. `+ questions[i].a+ `</li>
+    <li class="result-b">B. `+questions[i].b+`</li>
+    <li class="result-c">C. `+questions[i].c+`</li>
+    <li class="result-d">D. `+questions[i].d+`</li>
+        </ul>` + 
+    `<p> the correct answer was `+questions[i].correct+`.</p>`
+    ;
+        resultsSection.innerHTML+= resultLayout;
+        
+    }
+
+
 }
